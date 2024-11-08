@@ -1,0 +1,890 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0 10%; 
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle, #4e5b96, #2c2a2c);
+    min-height: 100vh; 
+}
+
+
+a, .btn {
+    transition: all 300ms ease;
+}
+
+
+/* Navbar base styling */
+nav, .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    justify-content: space-between;
+    padding: 1rem 0;
+    height: 17vh;
+    background-color: transparent;
+    transition: background-color 0.5s ease; /* Smooth background color change */
+}
+
+/* Nav links styling */
+.nav-links {
+    gap: 2rem;
+    list-style: none;
+    font-size: 1.5rem;
+    margin-right: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+/* Hover effect for links */
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Animated underline effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #0e0122;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Color change on hover */
+.nav-links a:hover {
+    color: #000000; /* Changes color on hover */
+}
+
+
+
+/* Transition effect for nav bar items */
+.nav-links a {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.nav-links a:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.nav-links a:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.nav-links a:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.nav-links a:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+a, h3, p {
+    color: rgba(255, 255, 255, 0.884);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(139, 139, 233);
+}
+
+
+.logo {
+    font-size: rem; 
+    color: rgba(255, 255, 255, 0.884);
+}
+
+.logo:hover {
+    cursor: default;
+}
+
+/* Hamburger  */
+
+#responsive-nav {
+    display: none; 
+    position: relative;
+    padding: 1rem; 
+}
+
+.responsive-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.884);
+    margin-left: 5rem;
+}
+
+.responsive-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.responsive-icon span {
+    width: 100%;
+    height: 3px; 
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    color: rgba(255, 255, 255, 0.884);
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    flex-direction: column; /
+}
+
+.menu-links a {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+
+.menu-links li {
+    list-style: none;
+}
+
+.menu-links.open {
+    max-height: 500px; 
+}
+
+
+.responsive-icon.open span:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.responsive-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.responsive-icon.open span:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+.responsive-icon span:first-child,
+.responsive-icon span:last-child {
+    transform: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.responsive-icon span:nth-child(2) {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+/* Back2Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: black;
+    transform: scale(1.1); 
+}
+
+
+
+#profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    height: 80vh;
+    padding: 1rem;
+}
+
+.section_pic-container {
+    display: flex;
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+.kurtprofile {
+    border-radius: 200px;
+    width: 100%;
+    height: auto;
+}
+
+.section_text {
+    align-self: center;
+    text-align: center;
+}
+
+.section_text p {
+    font-weight: 600;
+}
+
+.section__text__p1 {
+    text-align: center;
+    color: white;
+    margin-top: 3rem;
+}
+
+.section_text_p2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+#socials-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.icon {
+    cursor: pointer;
+    height: 2rem;
+   
+    
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    font-weight: 600;
+    transition: all 300ms ease;
+    padding: 1rem;
+    width: 8rem;
+    border-radius: 2rem;
+}
+
+.btn-color-1,
+.btn-color-2 {
+    border: rgb(0, 0, 0) 0.1rem solid;
+    color: white;
+    transition: transform 200ms ease-in-out;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.btn-color-2:hover {
+    background: rgba(255, 0, 0, 0.801);
+    color: rgb(0, 0, 0);
+}
+
+.btn-color-1 {
+    background: rgb(34, 34, 34);
+}
+
+.btn-color-1:hover {
+    color: rgb(0, 0, 0);
+    background: rgba(255, 0, 0, 0.801);
+}
+
+.btn-color-2 {
+    background: none;
+}
+
+.btn-color-2:hover {
+    border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+.btn-container {
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+    
+
+.section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap; 
+}
+
+
+.section__pic-container, 
+.about-details-container {
+    flex: 1 1 45%;
+    max-width: 50%;
+}
+
+
+.about-pic {
+    width: 80%; 
+    border-radius: 2rem;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 3D Hover Effect on Project Cards */
+.details-container {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 1rem;
+    border: 1px solid rgb(163, 163, 163);
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    cursor: pointer;
+    perspective: 1000px; /* Enables 3D effect */
+}
+
+.details-container:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05); /* 3D tilt effect */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Project image parallax effect */
+.project-img {
+    width: 100%;
+    border-radius: 1rem;
+    transition: transform 0.6s ease-in-out;
+    will-change: transform; /* Optimizes performance for the parallax effect */
+}
+
+.details-container:hover .project-img {
+    transform: translateY(-20px) scale(1.1); /* Adds depth when hovering */
+}
+
+/* Floating animation for project cards */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.about-containers {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem;
+    margin-bottom: 10rem;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.details-container {
+    animation: float 4s ease-in-out infinite; /* Project cards gently float */
+}
+
+/* Gradient animation for background of project cards */
+.color-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+    animation: gradientChange 5s ease infinite;
+}
+
+@keyframes gradientChange {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Custom cursor effect */
+body {
+    cursor: url('https://cdn.pixabay.com/photo/2016/12/06/17/24/cursor-1881747_1280.png'), auto; /* Replace with your custom cursor */
+}
+
+/* Additional hover effect for project titles */
+.project-title {
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.details-container:hover .project-title {
+    color: #100232; /* Changes title color on hover */
+    letter-spacing: 1px;
+}
+
+/* Parallax scrolling effect on section */
+#projects {
+    position: relative;
+    background: url('./assets/bg-pattern.png') fixed; /* Parallax effect on background */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.icon-fb {
+    width: 40px;
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
+}
+.icon.fb-icon{
+    width: 40px auto;
+    
+    border-radius: 20px;
+}
+
+.text-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: justify;
+}
+
+
+#experience {
+    position: relative;
+}
+
+.experience-sub-title {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+.experience-details-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+ }
+
+ .article-container {
+    display: flex;
+   text-align: initial; 
+   flex-wrap: wrap;
+   flex-direction: row;
+   gap: 2.5rem;
+   justify-content: space-around;
+ }
+ article{
+    display: flex;
+    width: 10rem;    
+    justify-content: space-around;
+    gap: 0.5rem;
+ }
+ article .icon {
+    cursor: default;
+    
+ }
+ #projects {
+    padding: 2rem 1rem;
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Place the third item in the center of the second row */
+.experience-details-container {
+    display: contents;
+}
+
+.details-container {
+    background: rgba(78, 91, 150, 0.35);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Targeting the third item to center it in the grid */
+.details-container:nth-child(3) {
+    grid-column: 1 / -1; /* Span both columns on the second row */
+    justify-self: center; /* Center-align the single item */
+}
+
+.project-img {
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+
+.project-img:hover {
+    transform: scale(1.05); 
+}
+/* Modal container */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+    padding: 0 15px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000; 
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+/* Modal content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 60vh;
+    border-radius: 8px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Modal description */
+#modalDescription {
+    color: white;
+    padding: 1rem;
+    font-size: 2rem;
+   
+    text-align: center;
+}
+
+
+
+/* Contact */
+#contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.contact-info-upper-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(224, 223, 223);
+    margin: 2rem auto;
+    padding: 0.5rem;
+}
+
+.contact-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem;
+}
+
+.contact-info-container p {
+    font-size: larger;
+}
+
+.contact-icon {
+    cursor: default;
+}
+
+.email-icon {
+    height: 2.5rem;
+}
+
+
+/* Footer */
+footer {
+    height: 5vh;
+    margin: 0 1rem;
+}
+
+footer p {
+    text-align: center;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .section-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section__pic-container, 
+    .about-details-container {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .about-containers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-container {
+        width: 90%; 
+        margin-bottom: 1rem;
+    }
+
+    .text-container {
+        padding: 1rem;
+    }
+
+    .back-to-top {
+        padding: 0.8rem; 
+    }
+    #contact {
+        height: auto; 
+        padding: 1rem;
+    }
+
+    .contact-info-upper-container {
+        flex-direction: column; 
+        padding: 1rem;
+    }
+
+    .contact-info-container {
+        flex-direction: column; 
+        gap: 1rem; 
+    }
+
+    .contact-info-container p {
+        font-size: 1rem; 
+    }
+
+    .email-icon {
+        height: 2rem; 
+    }
+
+    footer {
+        height: auto; 
+        padding: 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem; 
+    }
+    .icon {
+        width: 40px;
+    }
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .contact-info-container p {
+        font-size: 0.9rem; /* Smaller font size for very small screens */
+    }
+
+    .contact-info-container{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    #desktop-nav {
+        display: none; 
+    }
+
+    .menu-links{
+        background-color: black;
+
+    }
+
+    
+    
+    #responsive-nav {
+        display: block; 
+    }
+
+    #profile {
+        flex-direction: column;
+        gap: 2rem;
+        height: auto;
+    }
+
+    .section_pic-container {
+        height: auto;
+        width: 200px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .section_text_p2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* Footer */
+footer {
+    height: 5vh;
+    margin: 0 1rem;
+ }
+footer p {
+    text-align: center;
+}
